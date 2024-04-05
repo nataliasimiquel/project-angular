@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StatusService } from '../service/status.service'; // Importe o serviço que você precisa
+import { StatusService } from '../service/status.service';
 
 @Component({
   selector: 'app-dashboard',

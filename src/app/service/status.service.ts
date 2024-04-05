@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StatusService {
-  private apiUrl = '/v1/api'; // URL base da API
+  private apiUrl = '/v1/api';
 
   constructor(private http: HttpClient) { }
 
