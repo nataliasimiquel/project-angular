@@ -1,0 +1,25 @@
+/* No seu arquivo de estilos CSS */
+.background-image {
+  background-image: url('assets/vsoft.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.big-blue-button {
+  background-color: rgba(128, 128, 128, 0.5);
+  color: white;
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.big-blue-button:hover {
+  background-color: rgba(128, 128, 128, 0.8);
+}
