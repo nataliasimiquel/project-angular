@@ -22,8 +22,8 @@ export class StatusService {
     return this.http.get<any[]>(`${this.apiUrl}/data?data=${data}`);
   }
 
-  getEstadoComMaisAlertasENegativos(): Observable<string> {
-    return this.http.get<string>(`${this.apiUrl}/most-alerts-and-negatives`);
+  getEstadoComMaisAlertasENegativos(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/most-alerts-and-negatives`);
   }
 
   saveStatusFromValues(): Observable<void> {

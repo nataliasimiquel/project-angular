@@ -1,15 +1,31 @@
   <div *ngFor="let item of statusList">{{ item.estado }} - {{ item.status }}</div>
-  <!-- <p-table [value]="statusList">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Estado</th>
-            <th>Status</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-item>
-        <tr>
-            <td>{{ item.estado }}</td>
-            <td>{{ item.status }}</td>
-        </tr>
-    </ng-template>
-</p-table> -->
+  <div *ngIf="estadoComMaisAlertasENegativos">Estado com mais alertas e negativos - {{ estadoComMaisAlertasENegativos }} </div>
+
+
+  <div>
+    <label for="estadoSelect">Selecione um estado:</label>
+    <select id="estadoSelect" [(ngModel)]="selectedEstado" (change)="onEstadoChange()">
+      <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+    </select>
+</div>
+
+
+<div *ngFor="let item of estadoStatus">
+  <p>Status Por estado: {{ item.status }}-{{ item.data }}</p>
+  <p></p>
+</div>
+
+<input type="date" [(ngModel)]="selectedDate">
+<button (click)="buscarStatusPorData()">Buscar</button>
+
+<div *ngIf="statusPorData && statusPorData.length > 0">
+  <h2>Status por Data</h2>
+  <ul>
+    <li *ngFor="let status of statusPorData">
+      <p>Estado: {{ status.estado | uppercase }}</p>
+      <p>Status: {{ status.status | uppercase }}</p>
+      <p>Data: {{ status.data }}</p>
+    </li>
+  </ul>
+</div>
+

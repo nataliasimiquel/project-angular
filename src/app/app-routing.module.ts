@@ -12,7 +12,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     CommonModule,
-    BrowserModule
+    BrowserModule,
+
   ],
   exports: [RouterModule]
 })
