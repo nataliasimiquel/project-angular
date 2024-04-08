@@ -1,31 +1,66 @@
-  <div *ngFor="let item of statusList">{{ item.estado }} - {{ item.status }}</div>
-  <div *ngIf="estadoComMaisAlertasENegativos">Estado com mais alertas e negativos - {{ estadoComMaisAlertasENegativos }} </div>
+<table class="status-table">
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of statusList">
+      <td>{{ item.estado }}</td>
+      <td>{{ item.status }}</td>
+    </tr>
+  </tbody>
+</table>
 
-
-  <div>
-    <label for="estadoSelect">Selecione um estado:</label>
-    <select id="estadoSelect" [(ngModel)]="selectedEstado" (change)="onEstadoChange()">
-      <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
-    </select>
+<div class="estado-com-alertas-container">
+  <div *ngIf="estadoComMaisAlertasENegativos" class="estado-com-alertas">
+    <p>Estado com mais alertas e negativos: <strong>{{ estadoComMaisAlertasENegativos }}</strong></p>
+  </div>
 </div>
 
+<div class="grid-container">
 
-<div *ngFor="let item of estadoStatus">
-  <p>Status Por estado: {{ item.status }}-{{ item.data }}</p>
-  <p></p>
-</div>
+  <div class="column">
+    <div class="estado-select">
+      <label for="estadoSelect">Selecione um estado:</label>
+      <select id="estadoSelect" [(ngModel)]="selectedEstado" (change)="onEstadoChange()">
+        <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+      </select>
+    </div>
+  </div>
 
-<input type="date" [(ngModel)]="selectedDate">
-<button (click)="buscarStatusPorData()">Buscar</button>
+  <div class="column">
+    <div *ngIf="estadoStatus && estadoStatus.length > 0" class="status-por-estado">
+      <h2>Status Por estado:</h2>
+      <ul>
+        <li *ngFor="let item of estadoStatus" class="status-item-data">
+          <p><strong>Status:</strong> {{ item.status | uppercase }}</p>
+          <p><strong>Data:</strong> {{ item.data }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-<div *ngIf="statusPorData && statusPorData.length > 0">
-  <h2>Status por Data</h2>
-  <ul>
-    <li *ngFor="let status of statusPorData">
-      <p>Estado: {{ status.estado | uppercase }}</p>
-      <p>Status: {{ status.status | uppercase }}</p>
-      <p>Data: {{ status.data }}</p>
-    </li>
-  </ul>
+  <div class="column">
+    <div class="busca-por-data">
+      <input type="date" [(ngModel)]="selectedDate">
+      <button (click)="buscarStatusPorData()">Buscar</button>
+    </div>
+  </div>
+
+
+  <div class="column">
+    <div *ngIf="statusPorData && statusPorData.length > 0" class="status-por-data">
+      <h2>Status por Data</h2>
+      <ul>
+        <li *ngFor="let status of statusPorData" class="status-item-data">
+          <p><strong>Estado:</strong> {{ status.estado | uppercase }}</p>
+          <p><strong>Status:</strong> {{ status.status | uppercase }}</p>
+          <p><strong>Data:</strong> {{ status.data }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 

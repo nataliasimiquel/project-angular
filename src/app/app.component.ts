@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
           this.estadoStatus = [];
           data.forEach((item: any) => {
             const status = item.status;
-            const data = item.data;
+            const data = this.formatarData(item.data);
 
             this.estadoStatus.push({ status: status, data: data });
           });

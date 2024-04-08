@@ -1,17 +1,56 @@
-
-.big-blue-button {
-  background-color: rgba(128, 128, 128, 0.5);
-  color: white;
-  padding: 20px 40px;
-  font-size: 1.5rem;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
+/* Estilos para os elementos */
+.status-table {
+  width: 50%; /* ajuste o tamanho conforme necessário */
+  margin: 0 auto; /* centralizar a tabela horizontalmente */
+  border-collapse: collapse;
 }
 
-.big-blue-button:hover {
-  background-color: rgba(128, 128, 128, 0.8);
+.status-table th, .status-table td {
+  border: 1px solid #dddddd;
+  padding: 6px; /* reduzir o espaçamento interno */
+  text-align: center; /* centralizar o texto */
+}
+
+.status-table th {
+  background-color: #f2f2f2;
+}
+.estado-com-alertas-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.estado-com-alertas {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+  text-align: center;
+}
+.estado-select {
+  margin-bottom: 20px;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.column {
+  flex: 1 1 0;
+}
+
+.estado-select, .busca-por-data, .status-por-estado, .status-por-data {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 100%;
+}
+
+.estado-com-alertas {
+  background-color: #e20f0f;
+  padding: 10px;
+  border: 1px solid #7c1c1c;
+  border-radius: 5px;
+  margin-top: 20px;
 }
